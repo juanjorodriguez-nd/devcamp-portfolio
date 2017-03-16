@@ -11,7 +11,7 @@ class PortfoliosController < ApplicationController
    @portfolio_item = Portfolio.new( params.require(:portfolio).permit(:title, :subtitle, :body))
 
     respond_to do |format|
-      if @portfolio_item.save
+      if @portfolio_itemdd.save
         format.html { redirect_to @blog, notice: 'Blog was successfully created.' }
         format.json { render :show, status: :created, location: @blog }
       else
@@ -36,6 +36,9 @@ class PortfoliosController < ApplicationController
     end
   end
     
+  def show
+    @portfolio_item = Portfolio.find(params[:id])
+  end
   
   def blog_params
       params.require(:blog).permit(:title, :body)
