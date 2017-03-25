@@ -3,20 +3,24 @@ class PortfoliosController < ApplicationController
     @portfolio_items = Portfolio.all
   end
   
+  def angular
+    @angular_portfolio_items = Portfolio.angular
+  end
+  
   def new
     @portfolio_item = Portfolio.new
+    3.times { @portfolio_item.technologies.build }
   end
   
   def create
-   @portfolio_item = Portfolio.new( params.require(:portfolio).permit(:title, :subtitle, :body))
+   @portfolio_item = Portfolio.new( params.require(:portfolio).permit(:title, :subtitle, :body, 
+    technologies_attributes: [:name]))
 
     respond_to do |format|
-      if @portfolio_itemdd.save
-        format.html { redirect_to @blog, notice: 'Blog was successfully created.' }
-        format.json { render :show, status: :created, location: @blog }
+      if @portfolio_item.save
+        format.html { redirect_to portfolios_path, notice: 'Blog was successfully created.' }
       else
         format.html { render :new }
-        format.json { render json: @blog.errors, status: :unprocessable_entity }
       end
     end
   end
