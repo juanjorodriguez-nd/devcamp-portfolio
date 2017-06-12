@@ -1,4 +1,10 @@
 GIT
+  remote: https://github.com/juanjorodriguez-nd/juanjo_view_tool
+  revision: 1884193d656ab0ffff4b02f0645a9cfe846ddec4
+  specs:
+    juanjo_view_tool (0.1.0)
+
+GIT
   remote: https://github.com/twbs/bootstrap-rubygem
   revision: 7cdeca9a0e8db3bb7548d9fa5bdaad9b644fca32
   specs:
@@ -196,6 +202,7 @@ DEPENDENCIES
   friendly_id (~> 5.1.0)
   jbuilder (~> 2.5)
   jquery-rails
+  juanjo_view_tool!
   listen (~> 3.0.5)
   pg (~> 0.18)
   pry-byebug
